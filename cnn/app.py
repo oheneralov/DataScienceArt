@@ -1,20 +1,26 @@
 import time
 import os
-import redis
 from flask import Flask
 from flask import Flask, request, redirect, jsonify
 import urllib
 from werkzeug.utils import secure_filename
+import cv2
+import numpy as np
+from keras.models import load_model
+from imagenet_utils import decode_predictions
+from keras.preprocessing import image
 
 
 app = Flask(__name__)
-cache = redis.Redis(host='redis', port=6379)
 
 UPLOAD_FOLDER = './uploads'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 app.secret_key = "secret key"
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
+
+custom_resnet_model = load_model('custom_resnet_model.h5')
+custom_resnet_model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
 def allowed_file(filename):
 	return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
@@ -33,8 +39,15 @@ def upload_file():
 		return resp
 	if file and allowed_file(file.filename):
 		filename = secure_filename(file.filename)
-		file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-		resp = jsonify({'message' : 'File successfully uploaded', 'object': {'object_name': 'man'}})
+		filePath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+		file.save(filePath)
+		img = cv2.imread(filePath)
+		img = cv2.resize(img,(224,224))
+		img = np.reshape(img,[1,224,224,3])
+		preds = custom_resnet_model.predict(img)
+		result = decode_predictions(preds, top = 1)
+		object_name = result[0][0][1]
+		resp = jsonify({'message' : 'File successfully uploaded', 'object': {'object_name': object_name}})
 		resp.status_code = 201
 		return resp
 	else:
@@ -44,19 +57,7 @@ def upload_file():
 
 
 
-def get_hit_count():
-    retries = 5
-    while True:
-        try:
-            return cache.incr('hits')
-        except redis.exceptions.ConnectionError as exc:
-            if retries == 0:
-                raise exc
-            retries -= 1
-            time.sleep(0.5)
-
 
 @app.route('/')
 def hello():
-    count = get_hit_count()
-    return 'Hello World!!! I have been seen {} times.\n'.format(count)
+    return 'Hello!'
