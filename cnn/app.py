@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import time
 import os
 from flask import Flask
