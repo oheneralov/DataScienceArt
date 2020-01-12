@@ -11,6 +11,7 @@ import numpy as np
 from keras.models import load_model
 from imagenet_utils import decode_predictions
 from keras.preprocessing import image
+from resnet50architecture import ResNet50
 
 
 app = Flask(__name__)
@@ -21,7 +22,7 @@ app.secret_key = "secret key"
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 
-custom_resnet_model = load_model('custom_resnet_model.h5')
+custom_resnet_model = ResNet50(include_top=True, weightsPath ='custom_resnet_weights.h5')
 custom_resnet_model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
 def allowed_file(filename):
