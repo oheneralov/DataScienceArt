@@ -22,8 +22,8 @@ app.secret_key = "secret key"
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 
-custom_resnet_model = ResNet50(include_top=True, weightsPath ='custom_resnet_weights.h5')
-custom_resnet_model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+
+
 
 def allowed_file(filename):
 	return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
@@ -44,9 +44,13 @@ def upload_file():
 		filename = secure_filename(file.filename)
 		filePath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
 		file.save(filePath)
+		#print('filePath ', filePath)
 		img = cv2.imread(filePath)
 		img = cv2.resize(img,(224,224))
 		img = np.reshape(img,[1,224,224,3])
+		#preds = custom_resnet_model.predict(img)
+		#result = decode_predictions(preds, top = 1)
+		custom_resnet_model = ResNet50(include_top=True, weightsPath ='custom_resnet_weights.h5')
 		preds = custom_resnet_model.predict(img)
 		result = decode_predictions(preds, top = 1)
 		object_name = result[0][0][1]
