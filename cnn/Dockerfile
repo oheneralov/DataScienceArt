@@ -31,4 +31,4 @@ RUN apt-get  install  -y libsm6 libxext6 libxrender-dev
 #RUN apt-get  install  libsm6 libxrender1 libfontconfig1
 RUN pip3 install sklearn
 
-CMD ["flask", "run"]
+CMD ["python3", "app.py"]
