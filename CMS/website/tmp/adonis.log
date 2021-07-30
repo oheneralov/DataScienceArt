@@ -1,0 +1,31 @@
+{"level":"info","message":"serving app on http://0.0.0.0 // important:8080","timestamp":"2020-08-07T15:16:54.205Z"}
+{"level":"info","message":"serving app on http://0.0.0.0 // important:8080","timestamp":"2020-08-07T15:17:10.659Z"}
+{"level":"info","message":"Trying to recognize","timestamp":"2020-08-07T15:17:30.691Z"}
+{"level":"info","message":"sending the image to cnn","timestamp":"2020-08-07T15:17:30.693Z"}
+{"level":"info","message":"readFileAndSend","timestamp":"2020-08-07T15:17:33.113Z"}
+{"level":"info","message":"serving app on http://0.0.0.0 // important:8080","timestamp":"2020-08-10T16:01:04.551Z"}
+{"level":"info","message":"Trying to recognize","timestamp":"2020-08-10T16:02:33.679Z"}
+{"level":"info","message":"sending the image to cnn","timestamp":"2020-08-10T16:02:33.681Z"}
+{"level":"info","message":"readFileAndSend","timestamp":"2020-08-10T16:02:35.938Z"}
+{"level":"info","message":"serving app on http://0.0.0.0 // important:8080","timestamp":"2020-08-10T16:05:36.371Z"}
+{"level":"info","message":"Trying to recognize","timestamp":"2020-08-10T16:09:45.633Z"}
+{"level":"info","message":"sending the image to cnn","timestamp":"2020-08-10T16:09:45.635Z"}
+{"level":"info","message":"readFileAndSend","timestamp":"2020-08-10T16:09:47.867Z"}
+{"level":"info","message":"serving app on http://0.0.0.0 // important:8080","timestamp":"2020-08-10T16:23:17.454Z"}
+{"level":"info","message":"serving app on http://0.0.0.0 // important:8080","timestamp":"2020-08-10T16:27:33.444Z"}
+{"level":"info","message":"Trying to recognize","timestamp":"2020-08-10T16:27:42.581Z"}
+{"level":"info","message":"sending the image to cnn","timestamp":"2020-08-10T16:27:42.583Z"}
+{"level":"info","message":"readFileAndSend","timestamp":"2020-08-10T16:27:45.015Z"}
+{"level":"info","message":"serving app on http://0.0.0.0 // important:8080","timestamp":"2020-08-11T11:15:17.050Z"}
+{"level":"info","message":"Trying to recognize","timestamp":"2020-08-11T11:18:40.008Z"}
+{"level":"info","message":"sending the image to cnn","timestamp":"2020-08-11T11:18:40.011Z"}
+{"level":"info","message":"readFileAndSend","timestamp":"2020-08-11T11:18:41.821Z"}
+{"level":"info","message":"serving app on http://0.0.0.0 // important:8080","timestamp":"2020-10-08T15:02:47.597Z"}
+{"level":"info","message":"serving app on http://0.0.0.0 // important:8080","timestamp":"2020-10-08T17:53:38.770Z"}
+{"level":"info","message":"serving app on http://0.0.0.0 // important:8080","timestamp":"2020-10-08T17:58:11.432Z"}
+{"level":"info","message":"serving app on http://0.0.0.0 // important:8080","timestamp":"2020-10-08T17:58:24.078Z"}
+{"level":"info","message":"serving app on http://0.0.0.0 // important:8080","timestamp":"2020-10-08T17:59:36.258Z"}
+{"level":"info","message":"serving app on http://0.0.0.0 // important:8080","timestamp":"2020-10-08T18:12:32.670Z"}
+{"level":"info","message":"serving app on http://0.0.0.0 // important:8080","timestamp":"2020-10-08T18:13:03.974Z"}
+{"level":"info","message":"serving app on http://0.0.0.0 // important:8080","timestamp":"2021-02-17T14:27:22.847Z"}
+{"level":"info","message":"serving app on http://0.0.0.0 // important:8080","timestamp":"2021-02-17T15:05:36.809Z"}

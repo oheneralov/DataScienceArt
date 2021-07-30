@@ -1,0 +1,25 @@
+{{--
+      This tag let us know if the current user is logged in or not.
+
+      ref: http://adonisjs.com/docs/4.0/views#_loggedin
+      ref: http://adonisjs.com/docs/4.0/authentication#_loggedin
+      --}}
+@if(page.type === 'page')
+  @if(page.title === activePage)
+      <a class="nav-item nav-link active" href="/page/{{ page.title }}">{{ page.title }} <span class="sr-only">{{ page.title }}</span></a>
+  @else
+      <a class="nav-item nav-link" href="/page/{{ page.title }}">{{ page.title }} <span class="sr-only">{{ page.title }}</span></a>
+  @endif
+@endif
+
+@loggedIn
+@if(page.type !== 'page')
+  @if(page.title === activePage)
+      <a class="nav-item nav-link active" href="/page/{{ page.title }}">{{ page.title }} <span class="sr-only">{{ page.title }}</span></a>
+  @else
+      <a class="nav-item nav-link" href="/page/{{ page.title }}">{{ page.title }} <span class="sr-only">{{ page.title }}</span></a>
+  @endif
+@endif
+@endloggedIn
+
+

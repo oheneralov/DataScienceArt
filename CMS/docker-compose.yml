@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+
+  website:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./website:/home/web
+    working_dir: /home/web
+    environment:
+      NODE_ENV: development
+    ports:
+      - 8080:8080
+    command: bash ./docker_scripts/adonis_install.sh
+

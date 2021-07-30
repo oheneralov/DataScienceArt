@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {{-- Meta Information --}}
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name=viewport content="width=device-width, initial-scale=1">
+
+  {{-- Title --}}
+  <title>Electronic eyes</title>
+
+  {{-- CSS --}}
+  {{ style('/app.css') }}
+  {{ style('/bootstrap.min.css') }}
+  <link rel="stylesheet" href="/css/samples.css">
+	<link rel="stylesheet" href="/toolbarconfigurator/lib/codemirror/neo.css">
+  @loggedIn
+    {{ script('/ckeditor.js') }}
+    {{ script('/editorconf.js') }}
+
+  @endloggedIn
+
+</head>
+<body>
+  {{--
+    Include a partial into the view
+    ref: http://edge.adonisjs.com/docs/partials
+    --}}
+  @include('layout.partials.header')
+
+  @include('layout.partials.jumbotron')
+
+  <div class="container mx-auto px-4 mt-8">
+    {{--
+      Display the section content
+      ref: http://edge.adonisjs.com/docs/layouts#_basic_example
+      --}}
+    @!section('content')
+  </div>
+
+  {{-- Scripts --}}
+  {{ script('/app.js') }}
+ <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    {{ script('/jquery-3.2.1.slim.min.js') }}
+    {{ script('/popper.min.js') }}
+    {{ script('/bootstrap.min.js') }}
+    <script>
+    /*
+    if (document.querySelector( '#body' )) {
+      ClassicEditor
+            .create( document.querySelector( '#body' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+    }
+    
+    {{-- Localization --}}
+    $(function(){
+        $('#selectpicker').selectpicker();
+    });
+    */
+    
+    if (document.getElementById('body') ) {
+        initSample();
+    }
+    </script>
+      @loggedIn
+      {{ script('/capture.js') }}
+      @endloggedIn
+</body>
+</html>

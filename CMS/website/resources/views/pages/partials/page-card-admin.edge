@@ -1,0 +1,14 @@
+{{--
+      Check if a user is logged-in
+      --}}
+    @loggedIn
+      <div class="flex">
+        <span style="width: 200px;"><a class="flex items-center justify-left" style="margin-right: 5rem;" href="/admin/pages/{{ page.id }}/edit">{{ page.title }}</a></span>
+        <a class="flex shadow items-center justify-center text-grey-dark rounded-full h-10 w-10 bg-info-light mr-4" href="/admin/pages/{{ page.id }}/edit">
+          @!component('icon.edit', { size: '25px' })
+        </a>
+        <a class="flex shadow items-center justify-center text-grey-dark rounded-full h-10 w-10 bg-danger-light" href="/pages/{{ page.id }}/delete">
+          @!component('icon.trash', { size: '25px' })
+        </a>
+      </div>
+    @endloggedIn

@@ -1,0 +1,17 @@
+
+<label for="{{ name }}">Choose a type:</label>
+<select id="{{ name }}" name="{{ name }}" value="{{ value }}">
+  <option value="page">Page</option>
+  <option value="cnnapp">CNN Application</option>
+</select> 
+<script>
+  @if(value)
+    const options = document.getElementById('type').children
+    for (let option of options) {
+      if (option.value === '{{value}}') {
+        option.selected = 'selected'
+      }
+
+    }
+  @endif
+</script>
