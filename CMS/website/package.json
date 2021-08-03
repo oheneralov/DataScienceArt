@@ -27,7 +27,7 @@
     "@adonisjs/vow": "^1.0.15",
     "@adonisjs/vow-browser": "^1.0.6",
     "adonis-bundler": "^1.0.1",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "cross-blob": "^2.0.0",
     "deasync": "^0.1.19",
     "tailwindcss": "^0.6.1"
